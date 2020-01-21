@@ -26,7 +26,10 @@ public class OrderedArrayApp {
             System.out.println("Found "+searchKey);
         else
             System.out.println("Can't find "+searchKey);
-
+        orA.insert(79);
+        orA.insert(97);
+        orA.insert(2354789);
+        orA.display();
         orA.delete(10);
         orA.delete(38);
         orA.delete(99);
