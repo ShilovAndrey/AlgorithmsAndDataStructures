@@ -1,4 +1,4 @@
-package arrays.OrderedArray;
+package dataStructures.arrays.OrderedArray;
 
 public class OrderedArrayApp {
     public static void main(String[] args) {

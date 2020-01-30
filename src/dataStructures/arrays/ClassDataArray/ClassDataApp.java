@@ -1,4 +1,4 @@
-package arrays.ClassDataArray;
+package dataStructures.arrays.ClassDataArray;
 
 public class ClassDataApp {
     public static void main(String[] args) {

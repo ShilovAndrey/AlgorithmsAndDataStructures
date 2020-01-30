@@ -1,4 +1,4 @@
-package arrays.OrderedArray;
+package dataStructures.arrays.OrderedArray;
 
 public class OrderedArray {
     private long[] array;

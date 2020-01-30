@@ -1,4 +1,4 @@
-package arrays.ClassDataArray;
+package dataStructures.arrays.ClassDataArray;
 
 public class Person {
     private String firstName;
