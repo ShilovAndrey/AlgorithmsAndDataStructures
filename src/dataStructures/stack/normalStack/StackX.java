@@ -1,4 +1,4 @@
-package dataStructures.stack;
+package dataStructures.stack.normalStack;
 
 public class StackX {
     private int maxSize;   // размер массива
