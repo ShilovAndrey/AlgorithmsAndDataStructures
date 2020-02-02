@@ -7,9 +7,11 @@ public class BracketApp {
         String line;
         while(true){
             System.out.println("Введите строку для обработки");
-            line=getString();
-            BracketChecker checker = new BracketChecker(line);
-            checker.check();
+            line=getString();                                  // чтение строки с клавиатуры
+            if(line.equals(""))                                // завершение, если нажат Enter
+                break;
+            BracketChecker checker = new BracketChecker(line); // создание объекта BracketChecker
+            checker.check();                                   // проверка парных скобок
         }
     }
     private static String getString() {
