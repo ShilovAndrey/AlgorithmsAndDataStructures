@@ -1,4 +1,4 @@
-package dataStructures.stack.bracketsTask;
+package dataStructures.stack.basedOnArray.bracketsTask;
 
 public class StackZ {
     private int maxSize;

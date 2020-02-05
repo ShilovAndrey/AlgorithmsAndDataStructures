@@ -1,4 +1,4 @@
-package dataStructures.stack.normalStack;
+package dataStructures.stack.basedOnArray.normalStack;
 
 public class StackApp {
     public static void main(String[] args) {
