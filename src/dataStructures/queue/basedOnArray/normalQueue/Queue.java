@@ -1,4 +1,4 @@
-package dataStructures.queue.normalQueue;
+package dataStructures.queue.basedOnArray.normalQueue;
 
 public class Queue {
     private int maxSize;

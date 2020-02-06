@@ -1,4 +1,4 @@
-package dataStructures.queue.priorityQueue;
+package dataStructures.queue.basedOnArray.priorityQueue;
 
 public class PriorityApp {
 

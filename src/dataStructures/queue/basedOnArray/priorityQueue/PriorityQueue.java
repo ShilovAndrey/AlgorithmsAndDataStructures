@@ -1,4 +1,4 @@
-package dataStructures.queue.priorityQueue;
+package dataStructures.queue.basedOnArray.priorityQueue;
 
 public class PriorityQueue {           // элементы массива сортируются по значению ключа, от максимума (0)
                                        // до минимума (maxSize-1)
