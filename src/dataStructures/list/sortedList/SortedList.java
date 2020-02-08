@@ -33,7 +33,7 @@ public class SortedList {
     }
 
     public void displayList(){
-        System.out.println("List (first-->last): ");
+        System.out.println("Link (first-->last): ");
         Link current=first;
         while(current!=null){
             current.displayLink();
