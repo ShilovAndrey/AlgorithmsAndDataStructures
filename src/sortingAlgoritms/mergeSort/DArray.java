@@ -47,14 +47,14 @@ public class DArray {
 
         while (lowPtr <= middle && highPtr <= upperBound) {
             if (theArray[lowPtr] < theArray[highPtr])
-                workSpace[j++] = theArray[lowPtr];
+                workSpace[j++] = theArray[lowPtr++];
             else
-                workSpace[j++] = theArray[highPtr];
+                workSpace[j++] = theArray[highPtr++];
         }
         while (lowPtr <= middle)
             workSpace[j++] = theArray[lowPtr++];
         while (highPtr <= upperBound)
-            workSpace[j++] = theArray[highPtr];
+            workSpace[j++] = theArray[highPtr++];
 
         for (j = 0; j < n; j++)
             theArray[lowerBound + j] = workSpace[j];
