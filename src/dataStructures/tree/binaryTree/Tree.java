@@ -52,30 +52,32 @@ public class Tree {
         }
     }
 
-    public boolean delete(int key) {
+    public boolean delete(int key) {                 // удаление узла с заданным ключом
         Node current = root;
         Node parent = root;
         boolean isLeftChild = true;
-        while (current.iData != key) {
+        while (current.iData != key) {              // поиск узла
             parent = current;
-            if (key < current.iData) {
+            if (key < current.iData) {              // двигаться налево?
                 isLeftChild = true;
                 current = current.leftChild;
-            } else {
+            } else {                                // или направо?
                 isLeftChild = false;
                 current = current.rightChild;
             }
-            if (current == null)
-                return false;
+            if (current == null)                    // конец цепочки
+                return false;                       // узел не найден
         }
+        // если узел не имеет потомков, он просто удаляется
         if (current.leftChild == null && current.rightChild == null) {
-            if (current == root)
-                root = null;
+            if (current == root)                    // если узел является корневым,
+                root = null;                        // дерево удаляется
             else if (isLeftChild)
-                parent.leftChild = null;
+                parent.leftChild = null;            // узел отсоединяется от родителя
             else
                 parent.rightChild = null;
         }
+        // если нет правого потомка, узел заменяется левым поддеревом
         if (current.rightChild == null) {
             if (current == root)
                 root = current.leftChild;
@@ -83,7 +85,7 @@ public class Tree {
                 parent.leftChild = current.leftChild;
             else
                 parent.rightChild = current.leftChild;
-        } else if (current.leftChild == null) {
+        } else if (current.leftChild == null) {        // если нет левого потомка, узел заменяется правым поддеревом
             if (current == root)
                 root = current.rightChild;
             else if (isLeftChild)
@@ -91,7 +93,8 @@ public class Tree {
             else
                 parent.rightChild = current.rightChild;
         } else {                       // два потомка, узел заменяется приемником
-            Node successor = getSuccessor(current);
+            Node successor = getSuccessor(current);  // поиск приемника для удаляемого узла current
+            // родитель current связывается с посредником
             if (current == root)
                 root = successor;
             else if (isLeftChild)
@@ -108,14 +111,14 @@ public class Tree {
     private Node getSuccessor(Node delNode) {
         Node successorParent = delNode;
         Node succesor = delNode;
-        Node current = delNode.rightChild;
-        while (current != null) {
+        Node current = delNode.rightChild;    // переход к правому потомку
+        while (current != null) {             // пока остаются левые потомки
             successorParent = succesor;
             succesor = current;
-            current = current.leftChild;
+            current = current.leftChild;      // переход к левому потомку
         }
-        if (succesor != delNode.rightChild) {
-            successorParent.leftChild = succesor.rightChild;
+        if (succesor != delNode.rightChild) { // если преемник не является правым потомком,
+            successorParent.leftChild = succesor.rightChild;  // создать связи между узлами
             succesor.rightChild = delNode.rightChild;
         }
         return succesor;
@@ -199,4 +202,3 @@ public class Tree {
         System.out.println("..................................");
     }
 }
-

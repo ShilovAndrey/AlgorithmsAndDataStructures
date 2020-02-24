@@ -50,7 +50,7 @@ public class TreeApp {
                     }
                 case 't':
                     System.out.println("Enter order: ");
-                    theTree.traverse(50);
+                    theTree.traverse(2);
                     break;
             }
         }
