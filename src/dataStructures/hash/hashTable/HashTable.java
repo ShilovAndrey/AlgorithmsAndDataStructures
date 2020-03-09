@@ -23,15 +23,20 @@ public class HashTable {
         System.out.println();
     }
 
-    public int hashFunc(int key){
+    private int hashFunc(int key){
         return key%arraySize;
+    }
+
+    private int hashStep(int key){
+        return (5-key%5);
     }
 
     public void insert(DataItem item){
         int key=item.getKey();
         int hashVal=hashFunc(key);
+        int step=hashStep(key);
         while(hashArray[hashVal]!=null&&hashArray[hashVal].getKey()!=-1){
-            ++hashVal;
+            hashVal+=step;
             hashVal%=arraySize;
         }
         hashArray[hashVal]=item;
@@ -39,14 +44,14 @@ public class HashTable {
 
     public DataItem delete(int key){
         int hashVal = hashFunc(key);
-
+        int step=hashStep(key);
         while(hashArray[hashVal]!=null) {
             if(hashArray[hashVal].getKey()==key) {
                 DataItem temp = hashArray[hashVal];
                 hashArray[hashVal]=nonItem;
                 return temp;
             }
-            ++hashVal;
+            hashVal+=step;
             hashVal%=arraySize;
         }
         return null;
@@ -54,10 +59,11 @@ public class HashTable {
 
     public DataItem find(int key){
         int hashVal=hashFunc(key);
+        int step=hashStep(key);
         while(hashArray[hashVal]!=null){
             if(hashArray[hashVal].getKey()==key)
                 return hashArray[hashVal];
-            ++hashVal;
+            hashVal+=step;
             hashVal%=arraySize;
         }
         return null;
