@@ -12,8 +12,8 @@ public class Heap {
         currentSize = 0;
     }
 
-    public boolean isEmpty(){
-        return (currentSize==0);
+    public boolean isEmpty() {
+        return (currentSize == 0);
     }
 
     public boolean insert(int key) {
@@ -53,59 +53,58 @@ public class Heap {
                 largeChild = rightChild;
             else
                 largeChild = rightChild;
-            if(top.getKey()>=heapArray[largeChild].getKey())
+            if (top.getKey() >= heapArray[largeChild].getKey())
                 break;
-            heapArray[index]=heapArray[largeChild];
-            index=largeChild;
+            heapArray[index] = heapArray[largeChild];
+            index = largeChild;
         }
-        heapArray[index]=top;
+        heapArray[index] = top;
     }
 
-    public boolean change(int index,int newValue){
-        if(index<0||index>=currentSize)
+    public boolean change(int index, int newValue) {
+        if (index < 0 || index >= currentSize)
             return false;
-        int oldValue=heapArray[index].getKey();
+        int oldValue = heapArray[index].getKey();
         heapArray[index].setKey(newValue);
-        if(newValue<oldValue)
+        if (newValue < oldValue)
             trickleDown(index);
         else
             trickleUp(index);
         return true;
     }
 
-    public void displayHeap(){
+    public void displayHeap() {
         System.out.print("heapArray: ");
-        for(int m=0;m<currentSize;m++)
-            if(heapArray[m]!=null)
-                System.out.print(heapArray[m].getKey()+" ");
+        for (int m = 0; m < currentSize; m++)
+            if (heapArray[m] != null)
+                System.out.print(heapArray[m].getKey() + " ");
             else
                 System.out.print("-- ");
         System.out.println();
 
-        int nBlanks=32;
-        int itemsPerRow=1;
-        int column=0;
-        int j=0;
-        String dots="...........................";
-        System.out.println(dots+dots);
+        int nBlanks = 32;
+        int itemsPerRow = 1;
+        int column = 0;
+        int j = 0;
+        String dots = "...........................";
+        System.out.println(dots + dots);
 
-        while(currentSize>0){
-            if(column==0)
-                for(int k=0;k<nBlanks;k++)
+        while (currentSize > 0) {
+            if (column == 0)
+                for (int k = 0; k < nBlanks; k++)
                     System.out.print(' ');
             System.out.print(heapArray[j].getKey());
-            if(++j==currentSize)
+            if (++j == currentSize)
                 break;
-            if(++column==itemsPerRow){
-                nBlanks/=2;
-                itemsPerRow*=2;
-                column=0;
+            if (++column == itemsPerRow) {
+                nBlanks /= 2;
+                itemsPerRow *= 2;
+                column = 0;
                 System.out.println();
-            }
-            else
-                for(int k=0;k<nBlanks*2-2;k++)
+            } else
+                for (int k = 0; k < nBlanks * 2 - 2; k++)
                     System.out.print(' ');
         }
-        System.out.println("\n"+dots+dots);
+        System.out.println("\n" + dots + dots);
     }
 }
