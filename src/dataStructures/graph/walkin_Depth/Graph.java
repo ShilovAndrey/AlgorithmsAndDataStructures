@@ -15,8 +15,8 @@ public class Graph {
         theStack = new Stack();
         neighbors = new int[NUM_OF_VERTEX][NUM_OF_VERTEX];
 
-        for (int i = 0; i < nVertex; i++) {
-            for (int j = 0; j < nVertex; j++)
+        for (int i = 0; i < NUM_OF_VERTEX; i++) {
+            for (int j = 0; j < NUM_OF_VERTEX; j++)
                 neighbors[i][j] = 0;
         }
     }
@@ -29,9 +29,9 @@ public class Graph {
         vertexArray[nVertex++] = new Vertex(el);
     }
 
-    public void addEdge(int start,int finish){
-        neighbors[start][finish]=1;
-        neighbors[finish][start]=1;
+    public void addEdge(int start, int finish) {
+        neighbors[start][finish] = 1;
+        neighbors[finish][start] = 1;
     }
 
     public void walkInDepth() {
@@ -43,8 +43,8 @@ public class Graph {
             int v = findUnvisitedNeighbors(theStack.peek());
             if (v == -1)
                 theStack.pop();
-            else{
-                vertexArray[v].wasVisited=true;
+            else {
+                vertexArray[v].wasVisited = true;
                 displayVertex(v);
                 theStack.push(v);
             }
